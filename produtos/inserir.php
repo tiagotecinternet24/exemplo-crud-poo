@@ -1,7 +1,14 @@
 <?php
+
+use ExemploCrud\Services\ProdutoServico;
+
 require_once "../src/funcoes-fabricantes.php";
 require_once "../src/funcoes-produtos.php";
-$listaDeFabricantes = listarFabricantes($conexao);
+
+$fabricanteServico = new FabricanteServico();
+$listaDeFabricantes = $fabricanteServico->listarTodos();
+
+$produtoServico = new ProdutoServico();
 
 if(isset($_POST["inserir"])){
     
