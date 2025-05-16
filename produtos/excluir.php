@@ -1,9 +1,13 @@
 <?php
-require_once "../src/funcoes-produtos.php";
-$id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
+use ExemploCrud\Services\ProdutoServico;
+
+require_once "../vendor/autoload.php";
+$produtoServico = new ProdutoServico();
+
+$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 if(isset($_GET['confirmar-exclusao'])){
-    excluirProduto($conexao, $id);
+    $produtoServico->excluir($id);
     header("location:visualizar.php");
     exit;
 }
