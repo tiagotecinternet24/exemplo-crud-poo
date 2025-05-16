@@ -1,9 +1,12 @@
 <?php
 
 use ExemploCrud\Helpers\Utils;
+use ExemploCrud\Services\ProdutoServico;
+require_once "../vendor/autoload.php";
 
-require_once "../src/funcoes-produtos.php";
-$listaDeProdutos = listarProdutos($conexao);
+$produtoServico = new ProdutoServico();
+$listaDeProdutos = $produtoServico->listarTodos();
+$quantidade = count($listaDeProdutos);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
