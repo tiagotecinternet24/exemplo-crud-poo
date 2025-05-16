@@ -4,9 +4,9 @@ namespace ExemploCrud\Services;
 
 use PDO;
 use Exception;
-use Throwable;
 use ExemploCrud\Database\ConexaoBD;
 use ExemploCrud\Models\Produto;
+use Throwable;
 
 final class ProdutoServico
 {
@@ -69,8 +69,6 @@ final class ProdutoServico
             throw new Exception("Erro ao buscar produto por ID: " . $erro->getMessage());
         }
     }
-
-
 
     public function atualizar(Produto $produto): void
     {

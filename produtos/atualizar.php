@@ -11,7 +11,7 @@ $listaDeFabricantes = $fabricanteServico->listarTodos();
 $produtoServico = new ProdutoServico();
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-$produto = $produtoServico->buscarPorId($id);
+$produto = $produtoServico->buscarPorId($id); // produto carregado, existente do jeito que tá
 
 if(isset($_POST['atualizar'])){
     $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -20,6 +20,7 @@ if(isset($_POST['atualizar'])){
     $fabricanteId = filter_input(INPUT_POST, "fabricante", FILTER_SANITIZE_NUMBER_INT);
     $descricao = filter_input(INPUT_POST, "descricao", FILTER_SANITIZE_SPECIAL_CHARS);
 
+    // produto terá dados atualizados
     $produtoAtualizado = new Produto($nome, $preco, $quantidade, $fabricanteId, $descricao, $id);
     $produtoServico->atualizar($produtoAtualizado);
 
